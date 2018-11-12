@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Budget Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header-font1 wrapper">
+            Simple Budget Calculator
+        </h1>
+    </header>
+    <main>
+        <section class="totals">
+            <div class="totals-container wrapper">
+                <ul class="totals-list">
+                    <li class="totals-row">
+                        <h2 class="totals-item totals-item--heading">
+                            Income
+                        </h2>
+                        <p class="totals-item totals-item--value">
+                            $2,000.56
+                        </p>
+                        <!-- <ul class="totals-row-pair">
+                            <li class="totals-item totals-item--heading">Income</li>
+                            <li class="totals_item totals-item--value" id="income">$2,000.56</li>
+                        </ul> -->
+                    </li>
+                    <li class="totals-row">
+                        <h2 class="totals-item totals-item--heading">
+                            Expenses
+                        </h2>
+                        <p class="totals-item totals-item--value">
+                            $3,576.30
+                        </p>
+                        <!-- <ul class="totals-row-pair">
+                            <li class="totals-item totals-item--heading">Expenses</li>
+                            <li class="totals_item totals-item--value" id="expenses">$3,576.30</li>
+                        </ul> -->
+                    </li>
+                    <li class="totals-row">
+                        <h2 class="totals-item totals-item--heading">
+                            Balance
+                        </h2>
+                        <p class="totals-item totals-item--value">
+                            -$1,575.74
+                        </p>
+                        <!-- <ul class="totals-row-pair">
+                            <li class="totals-item totals-item--heading">Balance</li>
+                            <li class="totals_item totals-item--value" id="balance">-$1,575.74</li>
+                        </ul> -->
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="uinput">
+            <form action="" class="uinput-form wrapper">
+                <h3 class="uinput-heading">Transaction Type</h3>
+                <fieldset class="uinput-radio-container">
+                    <div class="uinput-radio-select">
+                        <input type="radio" name="transaction" id="expense" class="uinput-radio-item" value="expense"
+                            checked>
+                        <label for="expense" class="uinput-radio-item uinput-radio-item--label">Expense</label>
+                    </div>
+                    <div class="uinput-radio-select">
+                        <input type="radio" name="transaction" id="income" class="uinput-radio-item" value="income">
+                        <label for="income" class="uinput-radio-item uinput-radio-item--label">Income</label>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <ul>
+                        <li>
+                            <label for="date">Date</label>
+                            <input type="text" id="date" class="date" readonly>
+                        </li>
+                        <li>
+
+                        </li>
+                        <li>
+
+                        </li>
+                        <li>
+
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+        </section>
+
+
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+
+    <script>
+        $(function () {
+                    $('.date').datepicker({
+                        format: 'mm/dd/yyyy',
+                        startDate: '-3d'
+                    });
+                });
+    </script>
+
+</body>
+
+</html>

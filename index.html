@@ -153,8 +153,185 @@
                 <input type="submit" value="Add Entry">
             </form>
         </section>
-        <section>
-            
+        <section class="output-disp">
+            <div class="output-disp-container wrapper">
+                <ul class="output-disp-btn-list">
+                    <li id="all-btn" class="output-disp-btn">
+                        <h3 class="font-3">
+                            All
+                        </h3>
+                    </li>
+                    <li id="expense-btn" class="output-disp-btn">
+                        <h3 class="font-3">
+                            Expense
+                        </h3>
+                    </li>
+                    <li id="income-btn" class="output-disp-btn"">
+                        <h3 class="font-3">
+                            Income
+                        </h3> 
+                    </li>
+                </ul>
+                <div class="output-disp-results">
+                    <div id="all-tab" class="output-disp-table output-disp-top">
+                        <ul class="output-disp-row">
+                            <li class="output-disp-col-med-all">
+                                Date
+                            </li>
+                            <li class="output-disp-col-med-all">
+                                Type
+                            </li>
+                            <li class="output-disp-col-med-all">
+                                Category
+                            </li>
+                            <li class="output-disp-col-big-all">
+                                Description
+                            </li>
+                            <li class="output-disp-col-med-all">
+                                Amount
+                            </li>
+                            <li class="output-disp-col-small-all">
+                                X
+                            </li>
+                        </ul>
+                        <ul class="output-disp-row">
+                            <li class="output-disp-col-med-all">
+                                2018/11/13
+                            </li>
+                            <li class="output-disp-col-med-all">
+                                Expense
+                            </li>
+                            <li class="output-disp-col-med-all">
+                                Bills
+                            </li>
+                            <li class="output-disp-col-big-all">
+                                This is a test. This is a test
+                            </li>
+                            <li class="output-disp-col-med-all">
+                                $50.00
+                            </li>
+                            <li class="output-disp-col-small-all">
+                                X
+                            </li>
+                        </ul>
+                        <ul class="output-disp-row">
+                            <li class="output-disp-col-med-all">
+                                2018/11/13
+                            </li>
+                            <li class="output-disp-col-med-all">
+                                Income
+                            </li>
+                            <li class="output-disp-col-med-all">
+                                Bills
+                            </li>
+                            <li class="output-disp-col-big-all">
+                                This is a test
+                            </li>
+                            <li class="output-disp-col-med-all">
+                                $3475.00
+                            </li>
+                            <li class="output-disp-col-small-all">
+                                X
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div id="expense-tab" class="output-disp-table">
+                        <ul class="output-disp-row">
+                            <li class="output-disp-col-med">
+                                Date
+                            </li>
+                            <li class="output-disp-col-med">
+                                Category
+                            </li>
+                            <li class="output-disp-col-big">
+                                Description
+                            </li>
+                            <li class="output-disp-col-med">
+                                Amount
+                            </li>
+                            <li class="output-disp-col-small">
+                                X
+                            </li>
+                        </ul>
+                        <ul class="output-disp-row">
+                            <li class="output-disp-col-med">
+                                2018/11/13
+                            </li>
+                            <li class="output-disp-col-med">
+                                Bills
+                            </li>
+                            <li class="output-disp-col-big">
+                                This is a test
+                            </li>
+                            <li class="output-disp-col-med">
+                                $50.00
+                            </li>
+                            <li class="output-disp-col-small">
+                                X
+                            </li>
+                        </ul>
+                        <ul class="output-disp-row">
+                            <li class="output-disp-col-med">
+                                2018/11/13
+                            </li>
+                            <li class="output-disp-col-med">
+                                Food
+                            </li>
+                            <li class="output-disp-col-big">
+                                Test
+                            </li>
+                            <li class="output-disp-col-med">
+                                $20.00
+                            </li>
+                            <li class="output-disp-col-small">
+                                X
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="income-tab" class="output-disp-table">
+                        <ul class="output-disp-row">
+                            <li class="output-disp-col-med">
+                                Date
+                            </li>
+                            <li class="output-disp-col-med">
+                                Category
+                            </li>
+                            <li class="output-disp-col-big">
+                                Description
+                            </li>
+                            <li class="output-disp-col-med">
+                                Amount
+                            </li>
+                            <li class="output-disp-col-small">
+                                X
+                            </li>
+                        </ul>
+                        <ul class="output-disp-row">
+                            <li class="output-disp-col-med">
+                                2018/11/13
+                            </li>
+                            <li class="output-disp-col-med">
+                                Salary
+                            </li>
+                            <li class="output-disp-col-big">
+                                Work
+                            </li>
+                            <li class="output-disp-col-med">
+                                $3000.32
+                            </li>
+                            <li class="output-disp-col-small">
+                                X
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
         </section>
 
 
@@ -165,14 +342,8 @@
     <!-- bootstrap-datepicker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
 
-    <script>
-        $(function () {
-                    $('.uinput-date').datepicker({
-                        format: 'mm/dd/yyyy',
-                        startDate: '-3d'
-                    });
-                });
-    </script>
+    <script src="./js/vendor/datepicker.js"></script>
+    <script src="./js/script.js"></script>
 
 </body>
 

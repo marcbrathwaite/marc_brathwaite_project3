@@ -34,9 +34,7 @@
             margin-right: 0;
         }
 
-        &--heading {
-            text-transform: uppercase;
-        }
+        
     }
 }
 
@@ -49,11 +47,8 @@
         align-items: center;
     }
 
-    &-heading {
-        margin-bottom: 10px;
-    }
 
-    &-radio-container {
+    &-container {
         display: flex;
     }
 
@@ -73,14 +68,21 @@
         &:last-child {
             margin-right: 0;
         }
+
     }
 
-    &-radio-label {
-        padding-right: 100px;
+    &-invisible {
+        display: none;
+    }
 
-        &:last-of-type {
-            margin-right: 0;
+    &-list {
+        display: flex;
+
+        &-item {
+            display: flex;
+            flex-direction: column;
         }
     }
+
 
 }

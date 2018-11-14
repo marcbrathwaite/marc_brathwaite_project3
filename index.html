@@ -88,7 +88,7 @@
                                     Date
                                 </h3>
                             </label>
-                            <input type="text" id="date" class="uinput-date" readonly required>
+                            <input type="text" id="date" class="uinput-date" maxlength="10" required>
                         </li>
                         <li class="uinput-list-item">
                             <label for="category">
@@ -96,7 +96,7 @@
                                 Category
                                 </h3>
                             </label>
-                            <select name="category" id="category" class="uinput-expense-select">
+                            <select name="category" id="category" class="uinput-category-select">
                                 <option value="Groceries">
                                     Groceries
                                 </option>
@@ -120,7 +120,7 @@
                                 </option>
                             </select>
 
-                            <select name="category" id="category" class="uinput-income-select uinput-invisible">
+                            <select name="category" id="category" class="uinput-category-select uinput-invisible">
                                 <option value="Salary">
                                     Salary
                                 </option>
@@ -138,7 +138,7 @@
                                 Description
                                 </h3>
                             </label>
-                            <input type="text" id="description" class="uinput-description" required>
+                            <input type="text" id="description" class="uinput-description" maxlength="10">
                         </li>
                         <li class="uinput-list-item">
                             <label for="amount">
@@ -146,11 +146,11 @@
                                 Amount
                                 </h3>
                             </label>
-                            <input type="text" id="amount" class="uinput-amount" required>
+                            <input type="text" id="amount" class="uinput-amount" maxlength="10" required>
                         </li>
                     </ul>
                 </fieldset>
-                <input type="submit" value="Add Entry">
+                <input id="submit" type="submit" value="Add Entry">
             </form>
         </section>
         <section class="output-disp">
@@ -317,7 +317,7 @@
                                 Salary
                             </li>
                             <li class="output-disp-col-big">
-                                Work
+                                
                             </li>
                             <li class="output-disp-col-med">
                                 $3000.32

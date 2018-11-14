@@ -24,7 +24,7 @@ $(function () {
                                 ${description}
                             </li>
                             <li class="output-disp-col-med-all">
-                                $${amount}
+                                $${parseFloat(amount).toFixed(2)}
                             </li>
                             <li class="output-disp-col-small-all">
                                 <i class="fas fa-times-circle"></i>
@@ -42,7 +42,7 @@ $(function () {
                                 ${description}
                             </li>
                             <li class="output-disp-col-med">
-                                $${amount}
+                                $${parseFloat(amount).toFixed(2)}
                             </li>
                             <li class="output-disp-col-small">
                                 <i class="fas fa-times-circle"></i>
@@ -52,6 +52,7 @@ $(function () {
                         $('#all-tab').append(allHtml);
                         $(`#${transaction.toLowerCase()}-tab`).append(specHtml);
             },
+            //Function to display Expence/Income and Balance on the Dom
             displayValues: function(transaction,expense, income, balance) {
                 if (transaction === 'Expense') {
                     $('#expense-total').text(negativeCheck(expense));

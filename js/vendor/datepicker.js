@@ -1,6 +1,6 @@
 $(function () {
     $('.uinput-date').datepicker({
-        format: 'mm/dd/yyyy',
+        format: 'yyyy/mm/dd',
         startDate: '-3d'
     });
 });

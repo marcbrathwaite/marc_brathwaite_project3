@@ -6,9 +6,7 @@ const uiModule = (function () {
         expenseObj: {},
         incomeObj: {}
     };
-    // const allObj = {};
-    // const expenseObj = {};
-    // const incomeObj = {};
+
     let id = 0;
 
     //If negative return -$num else $num
@@ -17,7 +15,7 @@ const uiModule = (function () {
     }
 
     //Sorting elements in an object
-    function arraySort(valObj,sortParam,reverse) {
+    function arraySort(valObj, sortParam, reverse) {
         const sortedArray = [];
         for (let key in valObj) {
             sortedArray.push(valObj[key]);
@@ -25,7 +23,7 @@ const uiModule = (function () {
 
         if (!reverse) {
             //return array in descending order
-            return sortedArray.sort((a,b) => {
+            return sortedArray.sort((a, b) => {
                 //if the sortParameter is not date
                 if (sortParam !== 'date') {
                     return b[sortParam] > a[sortParam];
@@ -33,6 +31,7 @@ const uiModule = (function () {
                 return new Date(b[sortParam]) > new Date(a[sortParam]);
             });
         } else {
+
             //return array in ascending order
             return sortedArray.sort((a, b) => {
                 //if the sortParameter is not date
@@ -115,7 +114,7 @@ const uiModule = (function () {
         //Function to display Expence/Income and Balance on the Dom
         displayValues: function (transaction, expense, income, balance) {
 
-            if (/expense/i.test(transaction)) { 
+            if (/expense/i.test(transaction)) {
                 $('#expense-total').text(negativeCheck(expense));
             } else {
                 $('#income-total').text(negativeCheck(income));
@@ -125,33 +124,34 @@ const uiModule = (function () {
 
         },
         //Check whether enter amount is a valid dollar amount
-        isValidAmount: function(amount) {
-            amount = amount.replace(/^\$/,"");
+        isValidAmount: function (amount) {
+            amount = amount.replace(/^\$/, "");
             return $.isNumeric(amount) ? amount : false;
         },
         //Remove entry from the All table
-        removeFromTables: function(id) {
+        removeFromTables: function (id) {
             $(`#all-tab #${id}-list`).remove();
             delete totalObjs["allObj"][id];
-            if(/expense/.test(id)) {
+            if (/expense/.test(id)) {
                 $(`#expense-tab #${id}-list`).remove();
                 delete totalObjs["expenseObj"][id];
             } else {
                 $(`#income-tab #${id}-list`).remove();
                 delete totalObjs["incomeObj"][id];
             }
-        }, 
-        sortTable: function(id, reverse) {
-            //id could be all-date, expense-category etc, this splits on the '-', e.g. arraySort(totalObjs['allObj'],category)
-            return arraySort(totalObjs[`${id.split('-')[0]}Obj`],id.split('-')[1], reverse);
-            
         },
-        displaySortedTable: function(id, sortedArray) {
+
+        //Function splits the id tag on '-' and sends to the arraySort function e.g. all-tab => all tab. It also passes along boolean for determine which direction to sort
+        sortTable: function (id, reverse) {
+            return arraySort(totalObjs[`${id.split('-')[0]}Obj`], id.split('-')[1], reverse);
+
+        },
+        displaySortedTable: function (id, sortedArray) {
             const tabPrefix = id.split('-')[0];
-            let html = "" ;
-            
+            let html = "";
+
             if (tabPrefix === 'all') {
-                for(let obj of sortedArray) {
+                for (let obj of sortedArray) {
                     html += `<ul class="output-disp-row" id="${obj['id']}-list">
                             <li class="output-disp-col-small-all">
                                 <p class="tab-entry">${obj['date']}</p>
@@ -198,13 +198,13 @@ const uiModule = (function () {
             $(`#${tabPrefix}-tab`).html(html);
 
         },
-        getAllObj: function() {
+        getAllObj: function () {
             return totalObjs["allObj"];
         },
-        getIncomeObj: function() {
+        getIncomeObj: function () {
             return totalObjs["incomeObj"];
         },
-        getExpenseObj: function() {
+        getExpenseObj: function () {
             return totalObjs["expenseObj"];
         }
     }
@@ -223,7 +223,7 @@ const opsModule = (function () {
         balance: 0
     }
 
-    const updateBalance = function(){
+    const updateBalance = function () {
         values['balance'] = values['income'] - values['expense'];
     };
 
@@ -235,8 +235,9 @@ const opsModule = (function () {
             // values['balance'] = values['income'] - values['expense'];
             updateBalance();
         },
-        subtractValues: function(id, allObj) {
+        subtractValues: function (id, allObj) {
             if (/expense/.test(id)) {
+                // console.log(`${values["expense"]} = ${values["expense"]} - ${allObj[id].amount}`);
                 values["expense"] -= allObj[id].amount;
             } else {
                 values["income"] -= allObj[id].amount;
@@ -269,7 +270,7 @@ const budgetModule = (function (uiMod, opsMod) {
             //     $('#income-tab').removeClass("output-disp-top");
             //     $('#expense-tab').removeClass("output-disp-top");
             // }
-            
+
             if (!$('#all-tab-container').hasClass("output-disp-top")) {
                 $('#all-tab-container').addClass("output-disp-top");
                 $('#income-tab-container').removeClass("output-disp-top");
@@ -337,29 +338,26 @@ const budgetModule = (function (uiMod, opsMod) {
             if (amount && date) {
                 //Update Income or Expense and Balance
                 opsMod.addValues(transactionType, amount);
-    
+
                 //Display Income/Expense and Balance
                 uiMod.displayValues(transactionType, opsMod.getExpense(), opsMod.getIncome(), opsMod.getBalance());
-    
-    
-    
+
+
                 //display Entry in all table and either Expense or Income
                 uiMod.displayEntry(date, transactionType, category, description, amount);
-    
-    
+
+
                 $('#description').val('');
                 $('#amount').val('');
-            } else {
-                //if amount is invalid, display message
-                //if date is empty. display message
             }
         });
+
         //Clicking x to remove entry in all-tab
-        $('#all-tab,#income-tab,#expense-tab').on('click', 'i', function() {
-        
+        $('#all-tab,#income-tab,#expense-tab').on('click', 'i', function () {
+
             //subtract either Income or Expense
-            opsMod.subtractValues(this.id,uiMod.getAllObj());
-            
+            opsMod.subtractValues(this.id, uiMod.getAllObj());
+
             //Remove Entry from Tables
             uiMod.removeFromTables(this.id);
 
@@ -367,7 +365,6 @@ const budgetModule = (function (uiMod, opsMod) {
             uiMod.displayValues(this.id, opsMod.getExpense(), opsMod.getIncome(), opsMod.getBalance());
         });
 
-        //Clicking on headers
         const headerIDs = `#all-date,
                            #income-date,
                            #expense-date,
@@ -379,14 +376,18 @@ const budgetModule = (function (uiMod, opsMod) {
                            #expense-category,
                            #expense-amount`;
 
-        $(headerIDs).on('click', function(){
+        //Clicking on headers
+        $(headerIDs).on('click', function () {
             let reversed = false;
             if ($(this).hasClass('reversed')) {
                 reversed = true;
             }
+            //toggle reverse class on element, so that a different sort direction could be done
             $(this).toggleClass('reversed');
+
             //Determine which table to sort, sort associated object and return a sorted array
             const sortedArray = uiMod.sortTable(this.id, reversed);
+
             //redraw table with sorted values
             uiMod.displaySortedTable(this.id, sortedArray);
         });

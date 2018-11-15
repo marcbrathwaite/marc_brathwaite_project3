@@ -200,6 +200,9 @@ ul {
   width: 80%;
   margin: 0 auto; }
 
+html {
+  font-size: 62.5%; }
+
 .font-1 {
   text-align: center;
   text-transform: uppercase; }
@@ -209,7 +212,14 @@ ul {
 
 .font-3 {
   margin-bottom: 10px;
-  font-size: 16px; }
+  font-size: 1.6rem; }
+
+.tab-header {
+  font-size: 1.6rem;
+  text-transform: uppercase; }
+
+.tab-entry {
+  font-size: 1.6rem; }
 
 .header {
   padding: 50px 0;
@@ -323,7 +333,7 @@ ul {
   .output-disp-btn-btn:last-child {
     margin-right: 0; }
 
-.output-disp-results {
+.output-disp-table-container {
   width: 95%;
   position: relative;
   height: 300px; }
@@ -334,8 +344,11 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  overflow: auto;
   opacity: 0; }
+
+.output-disp-results {
+  width: 100%;
+  overflow: auto; }
 
 .output-disp-row {
   display: -webkit-box;
@@ -343,22 +356,28 @@ ul {
   display: flex; }
 
 .output-disp-col-small-all {
-  width: 5%; }
+  width: 10%;
+  border: 1px solid black; }
 
 .output-disp-col-med-all {
-  width: 17%; }
+  width: 20%;
+  border: 1px solid black; }
 
 .output-disp-col-big-all {
-  width: 27%; }
+  width: 40%;
+  border: 1px solid black; }
 
 .output-disp-col-small {
-  width: 5%; }
+  width: 10%;
+  border: 1px solid black; }
 
 .output-disp-col-med {
-  width: 20%; }
+  width: 20%;
+  border: 1px solid black; }
 
 .output-disp-col-big {
-  width: 35%; }
+  width: 50%;
+  border: 1px solid black; }
 
 .output-disp-top {
   z-index: 10;

@@ -41,41 +41,41 @@ const uiModule = (function () {
 
 
             const allHtml = `<ul class="output-disp-row" id="${htmlID}-list">
-                            <li class="output-disp-col-med-all">
-                                ${date}
-                            </li>
-                            <li class="output-disp-col-med-all">
-                                ${transaction}
-                            </li>
-                            <li class="output-disp-col-med-all">
-                                ${category}
-                            </li>
-                            <li class="output-disp-col-big-all">
-                                ${description}
-                            </li>
-                            <li class="output-disp-col-med-all">
-                                $${parseFloat(amount).toFixed(2)}
+                            <li class="output-disp-col-small-all">
+                                <p class="tab-entry">${date}</p>
                             </li>
                             <li class="output-disp-col-small-all">
-                                <i class="fas fa-times-circle" id="${htmlID}"></i>
+                                <p class="tab-entry">${transaction}</p>
+                            </li>
+                            <li class="output-disp-col-small-all">
+                                <p class="tab-entry">${category}</p>
+                            </li>
+                            <li class="output-disp-col-big-all">
+                                <p class="tab-entry">${description}</p>
+                            </li>
+                            <li class="output-disp-col-med-all">
+                                <p class="tab-entry">$${parseFloat(amount).toFixed(2)}</p>
+                            </li>
+                            <li class="output-disp-col-small-all">
+                                <p class="tab-entry"><i class="fas fa-times-circle" id="${htmlID}"></i></p>
                             </li>
                         </ul>`;
 
             const specHtml = `<ul class="output-disp-row" id="${htmlID}-list">
-                            <li class="output-disp-col-med">
-                                ${date}
-                            </li>
-                            <li class="output-disp-col-med">
-                                ${category}
-                            </li>
-                            <li class="output-disp-col-big">
-                                ${description}
-                            </li>
-                            <li class="output-disp-col-med">
-                                $${parseFloat(amount).toFixed(2)}
+                            <li class="output-disp-col-small">
+                                <p class="tab-entry">${date}</p>
                             </li>
                             <li class="output-disp-col-small">
-                                <i class="fas fa-times-circle" id="${htmlID}"></i>
+                                <p class="tab-entry">${category}</p>
+                            </li>
+                            <li class="output-disp-col-big">
+                                <p class="tab-entry">${description}</p>
+                            </li>
+                            <li class="output-disp-col-med">
+                                <p class="tab-entry">$${parseFloat(amount).toFixed(2)}</p>
+                            </li>
+                            <li class="output-disp-col-small">
+                                <p class="tab-entry"><i class="fas fa-times-circle" id="${htmlID}"></i></p>
                             </li>
                         </ul>`;
 
@@ -178,27 +178,43 @@ const budgetModule = (function (uiMod, opsMod) {
     const setupEventHandlers = function () {
         //Click All Button
         $('#all-btn').on('click', function () {
-            if (!$('#all-tab').hasClass("output-disp-top")) {
-                $('#all-tab').addClass("output-disp-top");
-                $('#income-tab').removeClass("output-disp-top");
-                $('#expense-tab').removeClass("output-disp-top");
+            // if (!$('#all-tab').hasClass("output-disp-top")) {
+            //     $('#all-tab').addClass("output-disp-top");
+            //     $('#income-tab').removeClass("output-disp-top");
+            //     $('#expense-tab').removeClass("output-disp-top");
+            // }
+            
+            if (!$('#all-tab-container').hasClass("output-disp-top")) {
+                $('#all-tab-container').addClass("output-disp-top");
+                $('#income-tab-container').removeClass("output-disp-top");
+                $('#expense-tab-container').removeClass("output-disp-top");
             }
         });
 
         //Click Expense Button
         $('#expense-btn').on('click', function () {
-            if (!$('#expense-tab').hasClass("output-disp-top")) {
-                $('#expense-tab').addClass("output-disp-top");
-                $('#all-tab').removeClass("output-disp-top");
-                $('#income-tab').removeClass("output-disp-top");
+            // if (!$('#expense-tab').hasClass("output-disp-top")) {
+            //     $('#expense-tab').addClass("output-disp-top");
+            //     $('#all-tab').removeClass("output-disp-top");
+            //     $('#income-tab').removeClass("output-disp-top");
+            // }
+            if (!$('#expense-tab-container').hasClass("output-disp-top")) {
+                $('#expense-tab-container').addClass("output-disp-top");
+                $('#all-tab-container').removeClass("output-disp-top");
+                $('#income-tab-container').removeClass("output-disp-top");
             }
         });
         //Click Income Button
         $('#income-btn').on('click', function () {
-            if (!$('#income-tab').hasClass("output-disp-top")) {
-                $('#income-tab').addClass("output-disp-top");
-                $('#expense-tab').removeClass("output-disp-top");
-                $('#all-tab').removeClass("output-disp-top");
+            // if (!$('#income-tab').hasClass("output-disp-top")) {
+            //     $('#income-tab').addClass("output-disp-top");
+            //     $('#expense-tab').removeClass("output-disp-top");
+            //     $('#all-tab').removeClass("output-disp-top");
+            // }
+            if (!$('#income-tab-container').hasClass("output-disp-top")) {
+                $('#income-tab-container').addClass("output-disp-top");
+                $('#expense-tab-container').removeClass("output-disp-top");
+                $('#all-tab-container').removeClass("output-disp-top");
             }
         });
 

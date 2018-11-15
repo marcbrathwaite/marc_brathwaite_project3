@@ -17,23 +17,31 @@ const uiModule = (function () {
     }
 
     //Sorting elements in an object
-    function arraySort(valObj,sortParam) {
+    function arraySort(valObj,sortParam,reverse) {
         const sortedArray = [];
         for (let key in valObj) {
             sortedArray.push(valObj[key]);
         }
 
-        sortedArray.sort((a,b) => {
-            //if the sortParameter is not date
-            if (sortParam !== 'date') {
-                return b[sortParam] > a[sortParam];
-            }
-            return new Date(b[sortParam]) > new Date(a[sortParam]);
-        })
-
-        // console.log(sortedArray);
-        return sortedArray;
-
+        if (!reverse) {
+            //return array in descending order
+            return sortedArray.sort((a,b) => {
+                //if the sortParameter is not date
+                if (sortParam !== 'date') {
+                    return b[sortParam] > a[sortParam];
+                }
+                return new Date(b[sortParam]) > new Date(a[sortParam]);
+            });
+        } else {
+            //return array in ascending order
+            return sortedArray.sort((a, b) => {
+                //if the sortParameter is not date
+                if (sortParam !== 'date') {
+                    return b[sortParam] < a[sortParam];
+                }
+                return new Date(b[sortParam]) < new Date(a[sortParam]);
+            });
+        }
 
     }
     return {
@@ -48,7 +56,7 @@ const uiModule = (function () {
                 transaction: transaction,
                 category: category,
                 description: description,
-                amount: amount,
+                amount: parseFloat(amount),
                 stringAmount: `$${parseFloat(amount).toFixed(2)}`
             };
 
@@ -57,7 +65,7 @@ const uiModule = (function () {
                 date: date,
                 category: category,
                 description: description,
-                amount: amount,
+                amount: parseFloat(amount),
                 stringAmount: `$${parseFloat(amount).toFixed(2)}`
             }
 
@@ -133,9 +141,9 @@ const uiModule = (function () {
                 delete totalObjs["incomeObj"][id];
             }
         }, 
-        sortTable: function(id) {
+        sortTable: function(id, reverse) {
             //id could be all-date, expense-category etc, this splits on the '-', e.g. arraySort(totalObjs['allObj'],category)
-            return arraySort(totalObjs[`${id.split('-')[0]}Obj`],id.split('-')[1]);
+            return arraySort(totalObjs[`${id.split('-')[0]}Obj`],id.split('-')[1], reverse);
             
         },
         displaySortedTable: function(id, sortedArray) {
@@ -370,10 +378,15 @@ const budgetModule = (function (uiMod, opsMod) {
                            #income-amount,
                            #expense-category,
                            #expense-amount`;
+
         $(headerIDs).on('click', function(){
+            let reversed = false;
+            if ($(this).hasClass('reversed')) {
+                reversed = true;
+            }
+            $(this).toggleClass('reversed');
             //Determine which table to sort, sort associated object and return a sorted array
-            const sortedArray = uiMod.sortTable(this.id);
-            // console.log(sortedArray);
+            const sortedArray = uiMod.sortTable(this.id, reversed);
             //redraw table with sorted values
             uiMod.displaySortedTable(this.id, sortedArray);
         });

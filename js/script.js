@@ -15,6 +15,27 @@ const uiModule = (function () {
     function negativeCheck(num) {
         return num < 0 ? `-$${Math.abs(num).toFixed(2)}` : `$${num.toFixed(2)}`;
     }
+
+    //Sorting elements in an object
+    function arraySort(valObj,sortParam) {
+        const sortedArray = [];
+        for (let key in valObj) {
+            sortedArray.push(valObj[key]);
+        }
+
+        sortedArray.sort((a,b) => {
+            //if the sortParameter is not date
+            if (sortParam !== 'date') {
+                return b[sortParam] - a[sortParam];
+            }
+            return new Date(b[sortParam]) - new Date(a[sortParam]);
+        })
+
+        // console.log(sortedArray);
+        return sortedArray;
+
+
+    }
     return {
         //Function to display user input
         displayEntry: function (date, transaction, category, description, amount) {
@@ -22,23 +43,23 @@ const uiModule = (function () {
             const htmlID = `${transaction.toLowerCase()}-${id}`;
 
             totalObjs["allObj"][htmlID] = {
+                id: htmlID,
                 date: date,
                 transaction: transaction,
                 category: category,
                 description: description,
-                amount: amount
+                amount: amount,
+                stringAmount: `$${parseFloat(amount).toFixed(2)}`
             };
 
-            // console.log(totalObjs["allObj"]);
-
             totalObjs[`${transaction.toLowerCase()}Obj`][htmlID] = {
+                id: htmlID,
                 date: date,
                 category: category,
                 description: description,
-                amount: amount
+                amount: amount,
+                stringAmount: `$${parseFloat(amount).toFixed(2)}`
             }
-
-
 
             const allHtml = `<ul class="output-disp-row" id="${htmlID}-list">
                             <li class="output-disp-col-small-all">
@@ -85,7 +106,7 @@ const uiModule = (function () {
         },
         //Function to display Expence/Income and Balance on the Dom
         displayValues: function (transaction, expense, income, balance) {
-            // if (transaction === 'Expense') {
+
             if (/expense/i.test(transaction)) { 
                 $('#expense-total').text(negativeCheck(expense));
             } else {
@@ -112,6 +133,63 @@ const uiModule = (function () {
                 delete totalObjs["incomeObj"][id];
             }
         }, 
+        sortTable: function(id) {
+            //id could be all-date, expense-category etc, this splits on the '-', e.g. arraySort(totalObjs['allObj'],category)
+            return arraySort(totalObjs[`${id.split('-')[0]}Obj`],id.split('-')[1]);
+            
+        },
+        displaySortedTable: function(id, sortedArray) {
+            const tabPrefix = id.split('-')[0];
+            let html = "" ;
+            
+            if (tabPrefix === 'all') {
+                for(let obj of sortedArray) {
+                    html += `<ul class="output-disp-row" id="${obj['id']}-list">
+                            <li class="output-disp-col-small-all">
+                                <p class="tab-entry">${obj['date']}</p>
+                            </li>
+                            <li class="output-disp-col-small-all">
+                                <p class="tab-entry">${obj['transaction']}</p>
+                            </li>
+                            <li class="output-disp-col-small-all">
+                                <p class="tab-entry">${obj['category']}</p>
+                            </li>
+                            <li class="output-disp-col-big-all">
+                                <p class="tab-entry">${obj['description']}</p>
+                            </li>
+                            <li class="output-disp-col-med-all">
+                                <p class="tab-entry">${obj['stringAmount']}</p>
+                            </li>
+                            <li class="output-disp-col-small-all">
+                                <p class="tab-entry"><i class="fas fa-times-circle" id="${obj['id']}"></i></p>
+                            </li>
+                        </ul>`;
+                }
+            } else {
+                for (let obj of sortedArray) {
+                    html += `<ul class="output-disp-row" id="${obj['id']}-list">
+                            <li class="output-disp-col-small">
+                                <p class="tab-entry">${obj['date']}</p>
+                            </li>
+                            <li class="output-disp-col-small">
+                                <p class="tab-entry">${obj['category']}</p>
+                            </li>
+                            <li class="output-disp-col-big">
+                                <p class="tab-entry">${obj['description']}</p>
+                            </li>
+                            <li class="output-disp-col-med">
+                                <p class="tab-entry">${obj['stringAmount']}</p>
+                            </li>
+                            <li class="output-disp-col-small">
+                                <p class="tab-entry"><i class="fas fa-times-circle" id="${obj['id']}"></i></p>
+                            </li>
+                        </ul>`;
+                }
+            }
+
+            $(`#${tabPrefix}-tab`).html(html);
+
+        },
         getAllObj: function() {
             return totalObjs["allObj"];
         },
@@ -279,6 +357,25 @@ const budgetModule = (function (uiMod, opsMod) {
 
             //display updated Income, Expense or Balance
             uiMod.displayValues(this.id, opsMod.getExpense(), opsMod.getIncome(), opsMod.getBalance());
+        });
+
+        //Clicking on headers
+        const headerIDs = `#all-date,
+                           #income-date,
+                           #expense-date,
+                           #all-transaction,
+                           #all-category,
+                           #all-amount,
+                           #income-category,
+                           #income-amount,
+                           #expense-category,
+                           #expense-amount`;
+        $(headerIDs).on('click', function(){
+            //Determine which table to sort, sort associated object and return a sorted array
+            const sortedArray = uiMod.sortTable(this.id);
+            // console.log(sortedArray);
+            //redraw table with sorted values
+            uiMod.displaySortedTable(this.id, sortedArray);
         });
 
 

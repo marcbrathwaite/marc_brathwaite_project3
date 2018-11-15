@@ -26,9 +26,9 @@ const uiModule = (function () {
         sortedArray.sort((a,b) => {
             //if the sortParameter is not date
             if (sortParam !== 'date') {
-                return b[sortParam] - a[sortParam];
+                return b[sortParam] > a[sortParam];
             }
-            return new Date(b[sortParam]) - new Date(a[sortParam]);
+            return new Date(b[sortParam]) > new Date(a[sortParam]);
         })
 
         // console.log(sortedArray);

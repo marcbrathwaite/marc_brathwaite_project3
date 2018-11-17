@@ -306,11 +306,11 @@ const budgetModule = (function (uiMod, opsMod) {
         });
 
         //Listener for transaction type checkbox
-        $('.uinput-radio-item').on('focus', function () {
+        $('.uinput-radio-button, .uinput-radio-label').on('focus', function () {
             //Display correct select box
             $(`.uinput-${$(this).val()}-select`).toggleClass('uinput-invisible');
             //Hide select box
-            $(`.uinput-${$('.uinput-radio-item:checked').val()}-select`).toggleClass('uinput-invisible');
+            $(`.uinput-${$('.uinput-radio-button:checked').val()}-select`).toggleClass('uinput-invisible');
         });
 
         //Clicking Add Entry button
@@ -318,10 +318,14 @@ const budgetModule = (function (uiMod, opsMod) {
             event.preventDefault();
 
             //Store transaction type from checkbox
-            const transactionType = $('.uinput-radio-item:checked').val();
+            const transactionType = $('.uinput-radio-button:checked').val();
 
             //Store date
             const date = $('#date').val();
+
+            if (!date) {
+                //Display error;
+            }
 
             //Store category from drop down
             const category = $(`.uinput-${transactionType}-select`).val();

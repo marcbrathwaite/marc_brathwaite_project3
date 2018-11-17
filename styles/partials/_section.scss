@@ -1,29 +1,55 @@
-.totals {
-    padding: 20px 0;
-
+.totals-uinput {
+    background: $secondary-color;
+    padding: 25px 0;
+    
     &-container {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
     }
+}
 
+.totals {
+    display: flex;
+    // justify-content: center;
+    // margin-bottom: 25px;
+    // border: 1px solid black;
+    // flex: 1 0 auto;
+    
     &-list {
         display: flex;
-        flex-direction: column;
+        width: 100%;
+        // flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
         // border: 1px solid green; 
         // width: 20%;  
     }
 
     &-row {
-        margin-bottom: 10px;
-        width: 100%;
+        // margin-bottom: 10px;
+        // width: 100%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        background: $accent-color2;
+        padding: 5px 10px;
+        border-radius: 5px;
 
         &:last-child {
             margin-bottom: 0;
         }
+
+        // &-income {
+        //     background: $accent-color2;
+        // }
+
+        // &-expenses {
+        //     background: $accent-color;
+        // }
+
+        // &-balance {
+        // }
     }
 
 
@@ -34,42 +60,111 @@
             margin-right: 0;
         }
 
+        &-value {
+            @include secondaryFont(25);
+            // color: $secondary-color;
+            color: white;
+        }
+
         
     }
 }
 
 .uinput {
-    @extend .totals;
+    // flex: 2 0 auto;
+    // border: 1px solid black;
+    margin: 30px 0;
 
     &-form {
         display: flex;
         flex-direction: column;
         align-items: center;
+        // border: 1px solid black;
     }
-
 
     &-container {
         display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        width: 70%;
+        // align-items: center;
     }
+
+    &-radio-container {
+        display:flex;
+        justify-content: center;
+    }
+
 
     &-radio-select {
         display: flex;
         margin-right: 30px;
+        // position: relative;
+        align-items: center;
+        // border: 1px solid black;
 
         &:last-of-type {
             margin-right: 0;
         }
+
     }
 
-    &-radio-item {
-        display: block;
-        margin-right: 10px;
-
-        &:last-child {
-            margin-right: 0;
+    
+    &-radio-label {
+        display:flex;
+        position: relative;
+        padding-left: 25px;
+        align-items: center;
+        cursor: pointer;
+        
+        .uinput-checkmark:after {
+            top:5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;   
         }
 
     }
+    &-radio-button {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        // margin-right: 10px;
+
+        // &:checked+.uinput-checkmark:after {
+        //     display: block;
+        // }
+
+        &:checked + .uinput-checkmark {
+            background: $accent-color;
+
+            &:after {
+                display: block;
+            }
+        }
+
+    }
+
+
+    &-checkmark {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+        border-radius: 50%;
+        transform: translateY(-50%);
+
+        &:after {
+            content: "";
+            display: none;
+            position: absolute;
+        }
+    }
+
 
     &-invisible {
         display: none;
@@ -77,22 +172,42 @@
 
     &-list {
         display: flex;
+        // border: 1px solid black;
+        justify-content: space-between;
 
         &-item {
             display: flex;
             flex-direction: column;
+            width: 40%;
+            // margin-right: 30px;
+            justify-content: space-between;
         }
     }
 
-    // &-amount-error::before {
-    //     display: block;
-    //     content: "Incorrect Format.";
-    //     font-size: 12px;
-    //     border: 1px solid black;
-    //     border-radius: 0 0 2px 2px;
-    //     background: teal;
-        
-    // }
+    &-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-description {
+        text-align: center;
+    }
+
+    &-amount {
+        text-align: center;
+    }
+
+    &-submit {
+        @include secondaryFont(18);
+        align-self: center;
+        margin-bottom: 10px;
+        background: $accent-color;
+        border: none;
+        padding: 10px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
 }
 
 .output-disp {

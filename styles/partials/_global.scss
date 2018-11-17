@@ -1,33 +1,72 @@
+$font-color: #232323;
+$accent-color: #8B2635;
+$accent-color2: #0B7A75;
+$main-color: #19535F;
+$secondary-color: #FAFAFA;
+
+@mixin primaryFont($size) {
+    // font-family: 'Crimson Text', serif;
+    font-family: 'Archivo', sans-serif;
+    color: $font-color;
+    font-weight: bold;
+    font-size: $size * 1px;
+    font-size: ($size/10) * 1rem;
+    text-transform: uppercase;
+    line-height: 1.6;
+}
+
+@mixin secondaryFont($size) {
+    // font-family: 'Work Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    color: $font-color;
+    font-size: $size * 1px;
+    font-size: ($size/10) * 1rem;
+    line-height: 1.6;
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
 .wrapper {
     max-width: 1280px;
     width: 80%;
     margin: 0 auto;
 }
 
-html {
-    font-size: 62.5%;
+input[type="text"], select {
+    @include secondaryFont(18);
+    line-height: 1.4;
+    border: 1px solid $font-color;
+    padding: 10px;
+    border-radius: 5px;
 }
 
+
+
 .font-1 {
+    color: #f0f3f5;
     text-align: center;
     text-transform: uppercase;
+    font-size: 90px;
+    font-weight: bold;
 }
 
 .font-2 {
-    text-transform: uppercase;
+    @include primaryFont(30);
+    // color: $secondary-color;
+    color: white;
 }
 
 
 .font-3 {
+    @include primaryFont(20);
+    text-align: center;
+    // color: $secondary-color;
     margin-bottom: 10px;
-    font-size: 1.6rem;
 }
 
-.tab-header {
-    font-size: 1.6rem;
-    text-transform: uppercase;
-}
-
-.tab-entry {
-    font-size: 1.6rem;
+p {
+    @include secondaryFont(18);
 }

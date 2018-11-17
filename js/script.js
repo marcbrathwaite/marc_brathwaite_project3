@@ -68,42 +68,44 @@ const uiModule = (function () {
                 stringAmount: `$${parseFloat(amount).toFixed(2)}`
             }
 
-            const allHtml = `<ul class="output-disp-row" id="${htmlID}-list">
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-entry">${date}</p>
+            // <li class="output-disp-col output-disp-col-2">
+            //                     <p class="output-disp-entry">${transaction}</p>
+            //                 </li>
+            const allHtml = `<ul class="output-disp-row output-disp-row-entry" id="${htmlID}-list">
+                            <li class="output-disp-col output-disp-col-2">
+                                <p class="output-disp-entry">${date}</p>
                             </li>
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-entry">${transaction}</p>
+
+                            <li class="output-disp-col output-disp-col-3">
+                                <p class="output-disp-entry-mini">${transaction}</p>
+                                <p class="output-disp-entry">${category}</p>
                             </li>
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-entry">${category}</p>
+                            <li class="output-disp-col output-disp-col-5">
+                                <p class="output-disp-entry">${description}</p>
                             </li>
-                            <li class="output-disp-col-big-all">
-                                <p class="tab-entry">${description}</p>
+                            <li class="output-disp-col output-disp-col-4">
+                                <p class="output-disp-entry">$${parseFloat(amount).toFixed(2)}</p>
                             </li>
-                            <li class="output-disp-col-med-all">
-                                <p class="tab-entry">$${parseFloat(amount).toFixed(2)}</p>
-                            </li>
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-entry"><i class="fas fa-times-circle" id="${htmlID}"></i></p>
+                            <li class="output-disp-col output-disp-col-1">
+                                <p class="output-disp-entry"><i class="fas fa-times-circle" id="${htmlID}"></i></p>
                             </li>
                         </ul>`;
 
-            const specHtml = `<ul class="output-disp-row" id="${htmlID}-list">
-                            <li class="output-disp-col-small">
-                                <p class="tab-entry">${date}</p>
+            const specHtml = `<ul class="output-disp-row output-disp-row-entry" id="${htmlID}-list">
+                            <li class="output-disp-col output-disp-col-2">
+                                <p class="output-disp-entry">${date}</p>
                             </li>
-                            <li class="output-disp-col-small">
-                                <p class="tab-entry">${category}</p>
+                            <li class="output-disp-col output-disp-col-3">
+                                <p class="output-disp-entry">${category}</p>
                             </li>
-                            <li class="output-disp-col-big">
-                                <p class="tab-entry">${description}</p>
+                            <li class="output-disp-col output-disp-col-5">
+                                <p class="output-disp-entry">${description}</p>
                             </li>
-                            <li class="output-disp-col-med">
-                                <p class="tab-entry">$${parseFloat(amount).toFixed(2)}</p>
+                            <li class="output-disp-col output-disp-col-4">
+                                <p class="output-disp-entry">$${parseFloat(amount).toFixed(2)}</p>
                             </li>
-                            <li class="output-disp-col-small">
-                                <p class="tab-entry"><i class="fas fa-times-circle" id="${htmlID}"></i></p>
+                            <li class="output-disp-col output-disp-col-1">
+                                <p class="output-disp-entry"><i class="fas fa-times-circle" id="${htmlID}"></i></p>
                             </li>
                         </ul>`;
 
@@ -150,46 +152,48 @@ const uiModule = (function () {
             const tabPrefix = id.split('-')[0];
             let html = "";
 
+            // <li class="output-disp-col output-disp-col-2">
+            //                     <p class="output-disp-entry">${obj['transaction']}</p>
+            //                 </li>
             if (tabPrefix === 'all') {
                 for (let obj of sortedArray) {
-                    html += `<ul class="output-disp-row" id="${obj['id']}-list">
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-entry">${obj['date']}</p>
+                    html += `<ul class="output-disp-row output-disp-row-entry" id="${obj['id']}-list">
+                            <li class="output-disp-col output-disp-col-2">
+                                <p class="output-disp-entry">${obj['date']}</p>
                             </li>
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-entry">${obj['transaction']}</p>
+                            
+                            <li class="output-disp-col output-disp-col-3">
+                                <p class="output-disp-entry-mini">${obj['transaction']}</p>
+                                <p class="output-disp-entry">${obj['category']}</p>
                             </li>
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-entry">${obj['category']}</p>
+                            <li class="output-disp-col output-disp-col-5">
+                                <p class="output-disp-entry">${obj['description']}</p>
                             </li>
-                            <li class="output-disp-col-big-all">
-                                <p class="tab-entry">${obj['description']}</p>
+                            <li class="output-disp-col output-disp-col-4">
+                                <p class="output-disp-entry">${obj['stringAmount']}</p>
                             </li>
-                            <li class="output-disp-col-med-all">
-                                <p class="tab-entry">${obj['stringAmount']}</p>
-                            </li>
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-entry"><i class="fas fa-times-circle" id="${obj['id']}"></i></p>
+                            <li class="output-disp-col output-disp-col-1">
+                                <p class="output-disp-entry"><i class="fas fa-times-circle" id="${obj['id']}"></i></p>
                             </li>
                         </ul>`;
                 }
             } else {
                 for (let obj of sortedArray) {
-                    html += `<ul class="output-disp-row" id="${obj['id']}-list">
-                            <li class="output-disp-col-small">
-                                <p class="tab-entry">${obj['date']}</p>
+                    html += `<ul class="output-disp-row output-disp-row-entry" id="${obj['id']}-list">
+                            <li class="output-disp-col output-disp-col-2">
+                                <p class="output-disp-entry">${obj['date']}</p>
                             </li>
-                            <li class="output-disp-col-small">
-                                <p class="tab-entry">${obj['category']}</p>
+                            <li class="output-disp-col output-disp-col-3">
+                                <p class="output-disp-entry">${obj['category']}</p>
                             </li>
-                            <li class="output-disp-col-big">
-                                <p class="tab-entry">${obj['description']}</p>
+                            <li class="output-disp-col output-disp-col-5">
+                                <p class="output-disp-entry">${obj['description']}</p>
                             </li>
-                            <li class="output-disp-col-med">
-                                <p class="tab-entry">${obj['stringAmount']}</p>
+                            <li class="output-disp-col output-disp-col-4">
+                                <p class="output-disp-entry">${obj['stringAmount']}</p>
                             </li>
-                            <li class="output-disp-col-small">
-                                <p class="tab-entry"><i class="fas fa-times-circle" id="${obj['id']}"></i></p>
+                            <li class="output-disp-col output-disp-col-1">
+                                <p class="output-disp-entry"><i class="fas fa-times-circle" id="${obj['id']}"></i></p>
                             </li>
                         </ul>`;
                 }
@@ -263,13 +267,27 @@ const opsModule = (function () {
 const budgetModule = (function (uiMod, opsMod) {
 
     const setupEventHandlers = function () {
+        
+        //Error input handling
+        // $('#amount').on('click', function() {
+        //     $('.uinput-amount-error').removeClass('error-appear');
+        // });
+
+        // $('#date').on('click', function () {
+        //     $('.uinput-date-error').removeClass('error-appear');
+        // });
+
+        $('.output-disp-btn').on('click', function() {
+            if (!$(this).hasClass('output-disp-btn-selected')) {
+                $('.output-disp-btn').removeClass('output-disp-btn-selected');
+                $(this).addClass('output-disp-btn-selected');
+            }
+
+        });
+        
         //Click All Button
         $('#all-btn').on('click', function () {
-            // if (!$('#all-tab').hasClass("output-disp-top")) {
-            //     $('#all-tab').addClass("output-disp-top");
-            //     $('#income-tab').removeClass("output-disp-top");
-            //     $('#expense-tab').removeClass("output-disp-top");
-            // }
+            
 
             if (!$('#all-tab-container').hasClass("output-disp-top")) {
                 $('#all-tab-container').addClass("output-disp-top");
@@ -280,11 +298,7 @@ const budgetModule = (function (uiMod, opsMod) {
 
         //Click Expense Button
         $('#expense-btn').on('click', function () {
-            // if (!$('#expense-tab').hasClass("output-disp-top")) {
-            //     $('#expense-tab').addClass("output-disp-top");
-            //     $('#all-tab').removeClass("output-disp-top");
-            //     $('#income-tab').removeClass("output-disp-top");
-            // }
+            
             if (!$('#expense-tab-container').hasClass("output-disp-top")) {
                 $('#expense-tab-container').addClass("output-disp-top");
                 $('#all-tab-container').removeClass("output-disp-top");
@@ -293,11 +307,7 @@ const budgetModule = (function (uiMod, opsMod) {
         });
         //Click Income Button
         $('#income-btn').on('click', function () {
-            // if (!$('#income-tab').hasClass("output-disp-top")) {
-            //     $('#income-tab').addClass("output-disp-top");
-            //     $('#expense-tab').removeClass("output-disp-top");
-            //     $('#all-tab').removeClass("output-disp-top");
-            // }
+        
             if (!$('#income-tab-container').hasClass("output-disp-top")) {
                 $('#income-tab-container').addClass("output-disp-top");
                 $('#expense-tab-container').removeClass("output-disp-top");
@@ -325,6 +335,7 @@ const budgetModule = (function (uiMod, opsMod) {
 
             if (!date) {
                 //Display error;
+                // $('.uinput-date-error').addClass('error-appear');
             }
 
             //Store category from drop down
@@ -337,6 +348,10 @@ const budgetModule = (function (uiMod, opsMod) {
 
             //Store amount
             const amount = uiMod.isValidAmount($('#amount').val());
+
+            if(!amount) {
+                // $('.uinput-amount-error').addClass('error-appear');
+            }
 
 
             if (amount && date) {

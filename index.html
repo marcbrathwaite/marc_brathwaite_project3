@@ -24,8 +24,108 @@
         </h1>
     </header>
     <main>
-        <section class="totals-uinput">
-            <div class="wrapper totals-uinput-container ">
+        <div class="wrapper totals-uinput">
+            <aside class="uinput ">
+                <!-- <section class="uinput"> -->
+                <form action="#" class="uinput-form">
+                    <fieldset class="uinput-container">
+                        <h3 class="font-3">Transaction Type</h3>
+                        <div class="uinput-radio-container">
+                            <div class="uinput-radio-select">
+
+                                <label for="expense" class="uinput-radio-label">
+                                    <input type="radio" name="transaction" id="expense" class="uinput-radio-button"
+                                        value="Expense" checked>
+                                    <span class="uinput-checkmark"></span>
+                                    <p>
+                                        Expense
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="uinput-radio-select">
+
+                                <label for="income" class="uinput-radio-label">
+                                    <input type="radio" name="transaction" id="income" class="uinput-radio-button"
+                                        value="Income">
+                                    <span class="uinput-checkmark"></span>
+                                    <p>
+                                        Income
+                                    </p>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="uinput-container">
+                        <label for="date">
+                            <h3 class="font-3">
+                                Date
+                            </h3>
+                        </label>
+                        <input type="text" id="date" class="uinput-center" placeholder="Format: YYYY/MM/DD" required>
+                    </fieldset>
+                    <fieldset class="uinput-container">
+                        <label for="category">
+                            <h3 class="font-3">
+                                Category
+                            </h3>
+                        </label>
+                        <select name="category" id="category" class="uinput-Expense-select uinput-center">
+                            <option value="Groceries">
+                                Groceries
+                            </option>
+                            <option value="Food">
+                                Food
+                            </option>
+                            <option value="Bills">
+                                Bills
+                            </option>
+                            <option value="Entertainment">
+                                Entertainment
+                            </option>
+                            <option value="Travel">
+                                Travel
+                            </option>
+                            <option value="Education">
+                                Education
+                            </option>
+                            <option value="Misc">
+                                Misc
+                            </option>
+                        </select>
+
+                        <select name="category" id="category" class="uinput-Income-select uinput-invisible uinput-center">
+                            <option value="Salary">
+                                Salary
+                            </option>
+                            <option value="Investments">
+                                Investments
+                            </option>
+                            <option value="Other Income">
+                                Other Income
+                            </option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="uinput-container">
+                        <label for="description">
+                            <h3 class="font-3">
+                                Description
+                            </h3>
+                        </label>
+                        <input type="text" id="description" class="uinput-center" maxlength="20">
+                    </fieldset>
+                    <fieldset class="uinput-container">
+                        <label for="amount">
+                            <h3 class="font-3">
+                                Amount
+                            </h3>
+                        </label>
+                        <input type="text" id="amount" class="uinput-center" maxlength="7" placeholder="Format: $34.00/34.00/34"
+                            required>
+                    </fieldset>
+                    <input id="submit" class="uinput-submit" type="submit" value="submit">
+                </form>
+            </aside>
+            <section class="totals-output">
                 <div class="totals">
                     <ul class="totals-list">
                         <li class="totals-row totals-row-income">
@@ -54,244 +154,131 @@
                         </li>
                     </ul>
                 </div>
-                <div class="uinput">
-                    <form action="#" class="uinput-form">
-                        <fieldset class="uinput-container">
-                            <h3 class="font-3">Transaction Type</h3>
-                            <div class="uinput-radio-container">
-                                <div class="uinput-radio-select">
+                <div class="output-disp">
+                    <ul class="output-disp-btn-list">
+                        <li id="all-btn" class="output-disp-btn output-disp-btn-selected">
+                            <h3 class="font-3 output-disp-btn-heading">
+                                All
+                            </h3>
+                        </li>
+                        <li id="expense-btn" class="output-disp-btn">
+                            <h3 class="font-3 output-disp-btn-heading">
+                                Expense
+                            </h3>
+                        </li>
+                        <li id="income-btn" class="output-disp-btn"">
+                        <h3 class=" font-3
+                            output-disp-btn-heading">
+                            Income
+                            </h3>
+                        </li>
+                    </ul>
+                    <div class="output-disp-table-container">
 
-                                    <label for="expense" class="uinput-radio-label">
-                                        <input type="radio" name="transaction" id="expense" class="uinput-radio-button"
-                                            value="Expense" checked>
-                                        <span class="uinput-checkmark"></span>
-                                        <p>
-                                            Expense
-                                        </p>
-                                    </label>
-                                </div>
-                                <div class="uinput-radio-select">
+                        <div id="all-tab-container" class="output-disp-table output-disp-top">
 
-                                    <label for="income" class="uinput-radio-label">
-                                        <input type="radio" name="transaction" id="income" class="uinput-radio-button"
-                                            value="Income">
-                                        <span class="uinput-checkmark"></span>
-                                        <p>
-                                            Income
-                                        </p>
-                                    </label>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="uinput-container">
-                            <ul class="uinput-list">
-                                <li class="uinput-list-item">
-                                    <label for="date">
-                                        <h3 class="font-3">
-                                            Date
-                                        </h3>
-                                    </label>
-                                    <input type="text" id="date" class="uinput-date" placeholder="YYYY/MM/DD" required>
+                            <ul class="output-disp-row">
+                                <li class="output-disp-col-2">
+                                    <p class="tab-header" id="all-date">
+                                        Date
+                                    </p>
                                 </li>
-                                <li class="uinput-list-item">
-                                    <label for="category">
-                                        <h3 class="font-3">
-                                            Category
-                                        </h3>
-                                    </label>
-                                    <select name="category" id="category" class="uinput-Expense-select">
-                                        <option value="Groceries">
-                                            Groceries
-                                        </option>
-                                        <option value="Food">
-                                            Food
-                                        </option>
-                                        <option value="Bills">
-                                            Bills
-                                        </option>
-                                        <option value="Entertainment">
-                                            Entertainment
-                                        </option>
-                                        <option value="Travel">
-                                            Travel
-                                        </option>
-                                        <option value="Education">
-                                            Education
-                                        </option>
-                                        <option value="Misc">
-                                            Misc
-                                        </option>
-                                    </select>
-
-                                    <select name="category" id="category" class="uinput-Income-select uinput-invisible">
-                                        <option value="Salary">
-                                            Salary
-                                        </option>
-                                        <option value="Investments">
-                                            Investments
-                                        </option>
-                                        <option value="Other Income">
-                                            Other Income
-                                        </option>
-                                    </select>
+                                <li class="output-disp-col-3">
+                                    <p class="tab-header" id="all-category">
+                                        Category
+                                    </p>
+                                </li>
+                                <li class="output-disp-col-5">
+                                    <p class="tab-header">
+                                        Description
+                                    </p>
+                                </li>
+                                <li class="output-disp-col-4">
+                                    <p class="tab-header" id="all-amount">
+                                        Amount
+                                    </p>
+                                </li>
+                                <li class="output-disp-col-1">
+                                    <p class="tab-header">
+                                        <i class="fas fa-times-circle"></i>
+                                    </p>
                                 </li>
                             </ul>
-                        </fieldset>
-                        <fieldset class="uinput-container">
-                            <div class="uinput-block">
-                                <label for="description">
-                                    <h3 class="font-3">
+                            <div id="all-tab" class="output-disp-results">
+                            </div>
+                        </div>
+
+                        <div id="expense-tab-container" class="output-disp-table">
+                            <ul class="output-disp-row">
+                                <li class="output-disp-col-2">
+                                    <p class="tab-header" id="expense-date">
+                                        Date
+                                    </p>
+                                </li>
+                                <li class="output-disp-col-3">
+                                    <p class="tab-header" id="expense-category">
+                                        Category
+                                    </p>
+                                </li>
+                                <li class="output-disp-col-5">
+                                    <p class="tab-header">
                                         Description
-                                    </h3>
-                                </label>
-                                <input type="text" id="description" class="uinput-description" maxlength="30">
-                            </div>
-                        </fieldset>
-                        <fieldset class="uinput-container">
-                            <div class="uinput-block">
-                                <label for="amount">
-                                    <h3 class="font-3">
+                                    </p>
+                                </li>
+                                <li class="output-disp-col-4">
+                                    <p class="tab-header" id="expense-amount">
                                         Amount
-                                    </h3>
-                                </label>
-                                <input type="text" id="amount" class="uinput-amount" maxlength="10" required>
-                                <span class="uinput-amount-error"></span>
+                                    </p>
+                                </li>
+                                <li class="output-disp-col-1">
+                                    <p class="tab-header">
+                                        <i class="fas fa-times-circle"></i>
+                                    </p>
+                                </li>
+                            </ul>
+                            <div id="expense-tab" class="output-disp-results">
                             </div>
-                        </fieldset>
-                        <input id="submit" class="uinput-submit" type="submit" value="submit">
-                    </form>
-                </div>
-            </div>
-        </section>
-        <section class="output-disp">
-            <div class="output-disp-container wrapper">
-                <ul class="output-disp-btn-list">
-                    <li id="all-btn" class="output-disp-btn">
-                        <h3 class="font-3">
-                            All
-                        </h3>
-                    </li>
-                    <li id="expense-btn" class="output-disp-btn">
-                        <h3 class="font-3">
-                            Expense
-                        </h3>
-                    </li>
-                    <li id="income-btn" class="output-disp-btn"">
-                        <h3 class=" font-3">
-                        Income
-                        </h3>
-                    </li>
-                </ul>
-                <div class="output-disp-table-container">
-
-                    <div id="all-tab-container" class="output-disp-table output-disp-top">
-
-                        <ul class="output-disp-row">
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-header" id="all-date">
-                                    Date
-                                </p>
-                            </li>
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-header" id="all-transaction">
-                                    Type
-                                </p>
-                            </li>
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-header" id="all-category">
-                                    Category
-                                </p>
-                            </li>
-                            <li class="output-disp-col-big-all">
-                                <p class="tab-header">
-                                    Description
-                                </p>
-                            </li>
-                            <li class="output-disp-col-med-all">
-                                <p class="tab-header" id="all-amount">
-                                    Amount
-                                </p>
-                            </li>
-                            <li class="output-disp-col-small-all">
-                                <p class="tab-header">
-                                    Delete <i class="fas fa-times-circle"></i>
-                                </p>
-                            </li>
-                        </ul>
-                        <div id="all-tab" class="output-disp-results">
                         </div>
-                    </div>
 
-                    <div id="expense-tab-container" class="output-disp-table">
-                        <ul class="output-disp-row">
-                            <li class="output-disp-col-small">
-                                <p class="tab-header" id="expense-date">
-                                    Date
-                                </p>
-                            </li>
-                            <li class="output-disp-col-small">
-                                <p class="tab-header" id="expense-category">
-                                    Category
-                                </p>
-                            </li>
-                            <li class="output-disp-col-big">
-                                <p class="tab-header">
-                                    Description
-                                </p>
-                            </li>
-                            <li class="output-disp-col-med">
-                                <p class="tab-header" id="expense-amount">
-                                    Amount
-                                </p>
-                            </li>
-                            <li class="output-disp-col-small">
-                                <p class="tab-header">
-                                    Delete <i class="fas fa-times-circle"></i>
-                                </p>
-                            </li>
-                        </ul>
-                        <div id="expense-tab" class="output-disp-results">
+                        <div id="income-tab-container" class="output-disp-table">
+                            <ul class="output-disp-row">
+                                <li class="output-disp-col-2">
+                                    <p class="tab-header" id="income-date">
+                                        Date
+                                    </p>
+                                </li>
+                                <li class="output-disp-col-3">
+                                    <p class="tab-header" id="income-category">
+                                        Category
+                                    </p>
+                                </li>
+                                <li class="output-disp-col-5">
+                                    <p class="tab-header">
+                                        Description
+                                    </p>
+                                </li>
+                                <li class="output-disp-col-4">
+                                    <p class="tab-header" id="income-amount">
+                                        Amount
+                                    </p>
+                                </li>
+                                <li class="output-disp-col-1">
+                                    <p class="tab-header">
+                                        <i class="fas fa-times-circle"></i>
+                                    </p>
+                                </li>
+                            </ul>
+                            <div id="income-tab" class="output-disp-results">
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="income-tab-container" class="output-disp-table">
-                        <ul class="output-disp-row">
-                            <li class="output-disp-col-small">
-                                <p class="tab-header" id="income-date">
-                                    Date
-                                </p>
-                            </li>
-                            <li class="output-disp-col-small">
-                                <p class="tab-header" id="income-category">
-                                    Category
-                                </p>
-                            </li>
-                            <li class="output-disp-col-big">
-                                <p class="tab-header">
-                                    Description
-                                </p>
-                            </li>
-                            <li class="output-disp-col-med">
-                                <p class="tab-header" id="income-amount">
-                                    Amount
-                                </p>
-                            </li>
-                            <li class="output-disp-col-small">
-                                <p class="tab-header">
-                                    Delete <i class="fas fa-times-circle"></i>
-                                </p>
-                            </li>
-                        </ul>
-                        <div id="income-tab" class="output-disp-results">
-                        </div>
                     </div>
-
                 </div>
 
+            </section>
 
-            </div>
+        </div>
 
-        </section>
 
 
 

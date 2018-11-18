@@ -269,13 +269,15 @@ const budgetModule = (function (uiMod, opsMod) {
     const setupEventHandlers = function () {
         
         //Error input handling
-        // $('#amount').on('click', function() {
-        //     $('.uinput-amount-error').removeClass('error-appear');
-        // });
-
-        // $('#date').on('click', function () {
-        //     $('.uinput-date-error').removeClass('error-appear');
-        // });
+        $('#amount').on('click', function() {
+            $('.uinput-amount-error').removeClass('error-appear');
+            $('.uinput-amount').removeClass('uinput-remove-radius');
+        });
+        
+        $('#date').on('click', function () {
+            $('.uinput-date-error').removeClass('error-appear');
+            $('.uinput-date').removeClass('uinput-remove-radius');
+        });
 
         $('.output-disp-btn').on('click', function() {
             if (!$(this).hasClass('output-disp-btn-selected')) {
@@ -335,7 +337,9 @@ const budgetModule = (function (uiMod, opsMod) {
 
             if (!date) {
                 //Display error;
-                // $('.uinput-date-error').addClass('error-appear');
+                $('.uinput-date-error').addClass('error-appear');
+                //remove bottom radius of input element
+                $('.uinput-date').addClass('uinput-remove-radius');
             }
 
             //Store category from drop down
@@ -350,7 +354,10 @@ const budgetModule = (function (uiMod, opsMod) {
             const amount = uiMod.isValidAmount($('#amount').val());
 
             if(!amount) {
-                // $('.uinput-amount-error').addClass('error-appear');
+                //Display Error
+                $('.uinput-amount-error').addClass('error-appear');
+                //remove bottom radius of input element
+                $('.uinput-amount').addClass('uinput-remove-radius');
             }
 
 

@@ -24,9 +24,38 @@
         </h1>
     </header>
     <main>
-        <div class="wrapper totals-uinput">
+        <section class="totals">
+            <div class="totals-container wrapper">
+                <ul class="totals-list">
+                    <li class="totals-row totals-row-income">
+                        <h2 class="totals-item font-2">
+                            Income
+                        </h2>
+                        <p class="totals-item totals-item-value" id="income-total">
+                            $0.00
+                        </p>
+                    </li>
+                    <li class="totals-row totals-row-expenses">
+                        <h2 class="totals-item font-2">
+                            Expenses
+                        </h2>
+                        <p class="totals-item totals-item-value" id="expense-total">
+                            $0.00
+                        </p>
+                    </li>
+                    <li class="totals-row totals-row-balance">
+                        <h2 class="totals-item font-2">
+                            Balance
+                        </h2>
+                        <p class="totals-item totals-item-value" id="balance-total">
+                            $0.00
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <div class="wrapper uinput-output">
             <aside class="uinput ">
-                <!-- <section class="uinput"> -->
                 <form action="#" class="uinput-form">
                     <fieldset class="uinput-container">
                         <h3 class="font-3">Transaction Type</h3>
@@ -61,7 +90,11 @@
                                 Date
                             </h3>
                         </label>
-                        <input type="text" id="date" class="uinput-center" placeholder="Format: YYYY/MM/DD" required>
+                        <input type="text" id="date" class="uinput-center uinput-date" placeholder="Format: YYYY/MM/DD"
+                            required>
+                        <span class="uinput-date-error">
+                            <p>Enter Date</p>
+                        </span>
                     </fieldset>
                     <fieldset class="uinput-container">
                         <label for="category">
@@ -119,41 +152,16 @@
                                 Amount
                             </h3>
                         </label>
-                        <input type="text" id="amount" class="uinput-center" maxlength="7" placeholder="Format: $34.00/34.00/34"
+                        <input type="text" id="amount" class="uinput-center uinput-amount" maxlength="9" placeholder="Format: $34.00/34.00/34"
                             required>
+                        <span class="uinput-amount-error">
+                            <p>Invalid Input</p>
+                        </span>
                     </fieldset>
                     <input id="submit" class="uinput-submit" type="submit" value="submit">
                 </form>
             </aside>
-            <section class="totals-output">
-                <div class="totals">
-                    <ul class="totals-list">
-                        <li class="totals-row totals-row-income">
-                            <h2 class="totals-item font-2">
-                                Income
-                            </h2>
-                            <p class="totals-item totals-item-value" id="income-total">
-                                $0.00
-                            </p>
-                        </li>
-                        <li class="totals-row totals-row-expenses">
-                            <h2 class="totals-item font-2">
-                                Expenses
-                            </h2>
-                            <p class="totals-item totals-item-value" id="expense-total">
-                                $0.00
-                            </p>
-                        </li>
-                        <li class="totals-row totals-row-balance">
-                            <h2 class="totals-item font-2">
-                                Balance
-                            </h2>
-                            <p class="totals-item totals-item-value" id="balance-total">
-                                $0.00
-                            </p>
-                        </li>
-                    </ul>
-                </div>
+            <section class="output">
                 <div class="output-disp">
                     <ul class="output-disp-btn-list">
                         <li id="all-btn" class="output-disp-btn output-disp-btn-selected">
@@ -174,32 +182,31 @@
                         </li>
                     </ul>
                     <div class="output-disp-table-container">
-
                         <div id="all-tab-container" class="output-disp-table output-disp-top">
 
                             <ul class="output-disp-row">
                                 <li class="output-disp-col-2">
-                                    <p class="tab-header" id="all-date">
+                                    <p class="output-disp-tab-header output-disp-cursor" id="all-date">
                                         Date
                                     </p>
                                 </li>
                                 <li class="output-disp-col-3">
-                                    <p class="tab-header" id="all-category">
+                                    <p class="output-disp-tab-header output-disp-cursor" id="all-category">
                                         Category
                                     </p>
                                 </li>
                                 <li class="output-disp-col-5">
-                                    <p class="tab-header">
+                                    <p class="output-disp-tab-header">
                                         Description
                                     </p>
                                 </li>
                                 <li class="output-disp-col-4">
-                                    <p class="tab-header" id="all-amount">
+                                    <p class="output-disp-tab-header output-disp-cursor" id="all-amount">
                                         Amount
                                     </p>
                                 </li>
                                 <li class="output-disp-col-1">
-                                    <p class="tab-header">
+                                    <p class="output-disp-tab-header">
                                         <i class="fas fa-times-circle"></i>
                                     </p>
                                 </li>
@@ -211,27 +218,27 @@
                         <div id="expense-tab-container" class="output-disp-table">
                             <ul class="output-disp-row">
                                 <li class="output-disp-col-2">
-                                    <p class="tab-header" id="expense-date">
+                                    <p class="output-disp-tab-header output-disp-cursor" id="expense-date">
                                         Date
                                     </p>
                                 </li>
                                 <li class="output-disp-col-3">
-                                    <p class="tab-header" id="expense-category">
+                                    <p class="output-disp-tab-header output-disp-cursor" id="expense-category">
                                         Category
                                     </p>
                                 </li>
                                 <li class="output-disp-col-5">
-                                    <p class="tab-header">
+                                    <p class="output-disp-tab-header">
                                         Description
                                     </p>
                                 </li>
                                 <li class="output-disp-col-4">
-                                    <p class="tab-header" id="expense-amount">
+                                    <p class="output-disp-tab-header output-disp-cursor" id="expense-amount">
                                         Amount
                                     </p>
                                 </li>
                                 <li class="output-disp-col-1">
-                                    <p class="tab-header">
+                                    <p class="output-disp-tab-header">
                                         <i class="fas fa-times-circle"></i>
                                     </p>
                                 </li>
@@ -243,27 +250,27 @@
                         <div id="income-tab-container" class="output-disp-table">
                             <ul class="output-disp-row">
                                 <li class="output-disp-col-2">
-                                    <p class="tab-header" id="income-date">
+                                    <p class="output-disp-tab-header output-disp-cursor" id="income-date">
                                         Date
                                     </p>
                                 </li>
                                 <li class="output-disp-col-3">
-                                    <p class="tab-header" id="income-category">
+                                    <p class="output-disp-tab-header output-disp-cursor" id="income-category">
                                         Category
                                     </p>
                                 </li>
                                 <li class="output-disp-col-5">
-                                    <p class="tab-header">
+                                    <p class="output-disp-tab-header">
                                         Description
                                     </p>
                                 </li>
                                 <li class="output-disp-col-4">
-                                    <p class="tab-header" id="income-amount">
+                                    <p class="output-disp-tab-header output-disp-cursor" id="income-amount">
                                         Amount
                                     </p>
                                 </li>
                                 <li class="output-disp-col-1">
-                                    <p class="tab-header">
+                                    <p class="output-disp-tab-header">
                                         <i class="fas fa-times-circle"></i>
                                     </p>
                                 </li>
@@ -274,15 +281,16 @@
 
                     </div>
                 </div>
-
             </section>
-
         </div>
-
-
-
-
     </main>
+    <footer class="footer">
+        <div class="wrapper">
+            <p class="footer-text">
+                Copyright © 2018 Brathworks
+            </p>
+        </div>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- bootstrap-datepicker -->

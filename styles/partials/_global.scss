@@ -50,22 +50,21 @@ input[type="text"], select {
     text-transform: uppercase;
     font-size: 90px;
     font-weight: bold;
+    text-align: center;
 }
 
 .font-2 {
-    @include primaryFont(24);
-    // color: $secondary-color;
+    @include primaryFont(20);
     color: white;
 }
 
 
 .font-3 {
-    @include primaryFont(22);
+    @include primaryFont(18);
     text-align: center;
-    // color: $secondary-color;
     margin-bottom: 10px;
 }
 
 p {
-    @include secondaryFont(18);
+    @include secondaryFont(16);
 }

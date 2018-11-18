@@ -1,11 +1,10 @@
-$font-color: #232323;
-$accent-color: #8B2635;
-$accent-color2: #0B7A75;
-$main-color: #19535F;
-$secondary-color: #FAFAFA;
+$background-color1: #0D1B2A;
+$color2: #C8D3D5;
+$background-color3: #778DA9;
+$font-color1: #FCFAFA;
+
 
 @mixin primaryFont($size) {
-    // font-family: 'Crimson Text', serif;
     font-family: 'Archivo', sans-serif;
     color: $font-color;
     font-weight: bold;
@@ -16,7 +15,6 @@ $secondary-color: #FAFAFA;
 }
 
 @mixin secondaryFont($size) {
-    // font-family: 'Work Sans', sans-serif;
     font-family: 'Open Sans', sans-serif;
     color: $font-color;
     font-size: $size * 1px;
@@ -46,7 +44,7 @@ input[type="text"], select {
 
 
 .font-1 {
-    color: $font-color;
+    color: $font-color1;
     text-transform: uppercase;
     font-size: 90px;
     font-weight: bold;
@@ -55,7 +53,7 @@ input[type="text"], select {
 
 .font-2 {
     @include primaryFont(20);
-    color: white;
+    color: $font-color1;
 }
 
 

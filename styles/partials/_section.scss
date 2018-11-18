@@ -1,16 +1,22 @@
 .uinput-output {
-    padding: 25px 0;
     display: flex;
     flex-wrap: wrap;
+
+    &-container {
+        margin-bottom: 25px;
+    }
 }
 
 .uinput {
-    flex: 1 0 auto;
-    margin-right: 50px;
+    margin-right: 20px;
+    background: #C8D3D5;
+    border-radius: 10px;
 
     &-form {
         display: flex;
         flex-direction: column;
+        border-radius: 5px;
+        padding: 10px;
     }
 
     &-container {
@@ -18,6 +24,7 @@
         flex-direction: column;
         margin-bottom: 25px;
         position: relative;
+        // width: 80%;
     }
 
     &-radio-container {
@@ -61,7 +68,7 @@
         cursor: pointer;
        
         &:checked + .uinput-checkmark {
-            background: $accent-color;
+            background: $background-color1;
 
             &:after {
                 display: block;
@@ -135,16 +142,22 @@
     }
 
     &-submit {
-        @include secondaryFont(18);
+        @include primaryFont(18);
         align-self: center;
         margin-bottom: 10px;
-        background: $accent-color;
+        background: $background-color1;
+        color: $font-color1;
         border: none;
         padding: 10px 30px;
         border-radius: 5px;
         cursor: pointer;
         text-transform: uppercase;
         box-shadow: 5px 5px 5px #ccc;
+        transition: background-color 0.5s;
+
+        &:hover {
+           color: $background-color3;
+        }
     }
 }
 
@@ -154,8 +167,11 @@
 
 .output {
     display: flex;
-    flex: 2 0 auto;
+    flex: 4 0 auto;
     flex-direction: column;
+    padding: 10px;
+    background: $background-color3;
+    border-radius: 10px;
 
 }
 
@@ -169,8 +185,7 @@
         display: flex;
         width: 100%;
         justify-content: space-around; 
-        padding: 50px 0;
-        border: 1px solid black;
+        padding: 40px 0;
     }
 
     &-row {
@@ -180,6 +195,7 @@
         background: $accent-color2;
         padding: 5px 10px;
         border-radius: 5px;
+
     }
 
 
@@ -192,7 +208,7 @@
 
         &-value {
             @include secondaryFont(20);
-            color: white;
+            color: $font-color1;
         }
 
 
@@ -207,6 +223,7 @@ input.uinput-remove-radius {
     display: flex;
     flex-direction: column;
     align-items: center;
+    // border-radius: 5px;
     
     &-btn-list {
         display: flex;
@@ -215,16 +232,21 @@ input.uinput-remove-radius {
     &-btn {
         padding: 0 15px;
         border-radius: 5px 5px 0 0;
-        background: $accent-color2; 
+        background: $background-color1;
         border-right: 1px solid black;
         cursor: pointer;
 
         &-heading {
             margin-bottom: 0;
+            color: $font-color1;
         }
         
         &-selected {
-            background:$accent-color;
+            background:$font-color1;
+            
+            & .font-3 {
+                color: $background-color1;
+            }
         }
     }
     
@@ -234,31 +256,36 @@ input.uinput-remove-radius {
 
     &-row {
         display: flex;
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        padding: 5px;
+        padding: 10px;
+        border: 1px solid $font-color1;
+        border-radius: 500px;
 
         &-entry {
             margin: 10px 0;
-            background: $accent-color2;
             border: none;
+            background: $font-color1;
         }
     }
 
     &-entry {
-        @include secondaryFont(16);
-        color: $secondary-color;
+        @include secondaryFont(18);
+        color: $background-color1;
+        font-weight: bold;
 
         &-mini {
             @include secondaryFont(12);
-            color: $secondary-color;
+            color: $background-color1;
+        }
+
+        & i {
+            cursor: pointer;
         }
     }
 
     &-table-container {
         width: 100%;
         position: relative;
-        height: 450px;
+        height: 575px;
     }
     
     &-table {
@@ -270,6 +297,11 @@ input.uinput-remove-radius {
         opacity: 0;
         overflow: auto;
     }
+
+    &-tab-header {
+        color: $font-color1;
+    }
+
     
     &-results {
         width: 100%;

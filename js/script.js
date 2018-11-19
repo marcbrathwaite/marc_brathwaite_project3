@@ -444,7 +444,7 @@ const budgetModule = (function (uiMod, opsMod) {
                            #expense-amount`;
 
         //Clicking on headers
-        $(headerIDs).on('click', function () {
+        $(".output-disp-table-container").on('click', headerIDs, function () {
             let reversed = false;
             if ($(this).hasClass('reversed')) {
                 reversed = true;

@@ -6,7 +6,6 @@ $background-color4: #0B7A75;
 
 @mixin primaryFont($size) {
     font-family: 'Archivo', sans-serif;
-    color: $font-color;
     font-weight: bold;
     font-size: $size * 1px;
     font-size: ($size/10) * 1rem;
@@ -16,7 +15,6 @@ $background-color4: #0B7A75;
 
 @mixin secondaryFont($size) {
     font-family: 'Open Sans', sans-serif;
-    color: $font-color;
     font-size: $size * 1px;
     font-size: ($size/10) * 1rem;
     line-height: 1.6;
@@ -40,13 +38,19 @@ select {
     border: 1px solid $font-color1;
     padding: 10px;
     border-radius: 5px;
+    width:100%;
+}
+
+select {
+    appearance: none;
+    background-image: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png);
+    background-repeat: no-repeat;
+    background-position: 95% center;
 }
 
 .font-1 {
+    @include primaryFont(80);
     color: $font-color1;
-    text-transform: uppercase;
-    font-size: 90px;
-    font-weight: bold;
     text-align: center;
 }
 
@@ -58,6 +62,7 @@ select {
 
 .font-3 {
     @include primaryFont(18);
+    color: $background-color1;
     text-align: center;
     margin-bottom: 10px;
 }

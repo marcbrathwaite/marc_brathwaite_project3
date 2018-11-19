@@ -203,27 +203,38 @@ html {
   width: 95%;
   margin: 0 auto; }
 
-input[type="text"], select {
+input[type="text"],
+select {
   font-family: 'Open Sans', sans-serif;
-  color: #232323;
   font-size: 18px;
   font-size: 1.8rem;
   line-height: 1.6;
   line-height: 1.4;
   border: 1px solid #FCFAFA;
   padding: 10px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  width: 100%; }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png);
+  background-repeat: no-repeat;
+  background-position: 95% center; }
 
 .font-1 {
-  color: #FCFAFA;
-  text-transform: uppercase;
-  font-size: 90px;
+  font-family: 'Archivo', sans-serif;
   font-weight: bold;
+  font-size: 80px;
+  font-size: 8rem;
+  text-transform: uppercase;
+  line-height: 1.6;
+  color: #FCFAFA;
   text-align: center; }
 
 .font-2 {
   font-family: 'Archivo', sans-serif;
-  color: #232323;
   font-weight: bold;
   font-size: 20px;
   font-size: 2rem;
@@ -233,18 +244,17 @@ input[type="text"], select {
 
 .font-3 {
   font-family: 'Archivo', sans-serif;
-  color: #232323;
   font-weight: bold;
   font-size: 18px;
   font-size: 1.8rem;
   text-transform: uppercase;
   line-height: 1.6;
+  color: #0D1B2A;
   text-align: center;
   margin-bottom: 10px; }
 
 p {
   font-family: 'Open Sans', sans-serif;
-  color: #232323;
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.6; }
@@ -383,11 +393,10 @@ p {
     background: rgba(139, 38, 53, 0.678); }
     .uinput-amount-error p, .uinput-date-error p {
       font-size: 1.2rem;
-      color: #FAFAFA;
+      color: #FCFAFA;
       text-align: center; }
   .uinput-submit {
     font-family: 'Archivo', sans-serif;
-    color: #232323;
     font-weight: bold;
     font-size: 18px;
     font-size: 1.8rem;
@@ -463,7 +472,6 @@ p {
     margin-right: 0; }
   .totals-item-value {
     font-family: 'Open Sans', sans-serif;
-    color: #232323;
     font-size: 20px;
     font-size: 2rem;
     line-height: 1.6;
@@ -515,7 +523,6 @@ input.uinput-remove-radius {
       background: #FCFAFA; }
   .output-disp-entry {
     font-family: 'Open Sans', sans-serif;
-    color: #232323;
     font-size: 18px;
     font-size: 1.8rem;
     line-height: 1.6;
@@ -523,7 +530,6 @@ input.uinput-remove-radius {
     font-weight: bold; }
     .output-disp-entry-mini {
       font-family: 'Open Sans', sans-serif;
-      color: #232323;
       font-size: 12px;
       font-size: 1.2rem;
       line-height: 1.6;
@@ -588,7 +594,8 @@ input.uinput-remove-radius {
   .uinput {
     margin-right: 0;
     margin-bottom: 30px; }
-  input[type="text"], select {
+  input[type="text"],
+  select {
     width: 100%; } }
 
 @media (max-width: 930px) {

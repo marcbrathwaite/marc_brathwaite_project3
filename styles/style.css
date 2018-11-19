@@ -210,7 +210,7 @@ input[type="text"], select {
   font-size: 1.8rem;
   line-height: 1.6;
   line-height: 1.4;
-  border: 1px solid #232323;
+  border: 1px solid #FCFAFA;
   padding: 10px;
   border-radius: 5px; }
 
@@ -229,7 +229,7 @@ input[type="text"], select {
   font-size: 2rem;
   text-transform: uppercase;
   line-height: 1.6;
-  color: white; }
+  color: #FCFAFA; }
 
 .font-3 {
   font-family: 'Archivo', sans-serif;
@@ -467,7 +467,7 @@ p {
     font-size: 20px;
     font-size: 2rem;
     line-height: 1.6;
-    color: white; }
+    color: #FCFAFA; }
 
 input.uinput-remove-radius {
   border-radius: 5px 5px 0 0; }
@@ -488,7 +488,7 @@ input.uinput-remove-radius {
     display: -ms-flexbox;
     display: flex; }
   .output-disp-btn {
-    padding: 0 15px;
+    padding: 5px 15px;
     border-radius: 5px 5px 0 0;
     background: #0D1B2A;
     border-right: 1px solid black;
@@ -560,13 +560,13 @@ input.uinput-remove-radius {
   .output-disp-col-1 {
     width: 3%; }
   .output-disp-col-2 {
-    width: 15%; }
-  .output-disp-col-3 {
     width: 20%; }
+  .output-disp-col-3 {
+    width: 22%; }
   .output-disp-col-4 {
     width: 25%; }
   .output-disp-col-5 {
-    width: 37%; }
+    width: 30%; }
   .output-disp-top {
     z-index: 10;
     opacity: 1; }
@@ -579,7 +579,7 @@ input.uinput-remove-radius {
   text-align: center;
   color: #FCFAFA; }
 
-@media (max-width: 1180px) {
+@media (max-width: 1100px) {
   .uinput-output {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -603,7 +603,8 @@ input.uinput-remove-radius {
     flex-direction: column;
     width: auto;
     padding: 0;
-    margin-top: 20px; }
+    margin-top: 20px;
+    margin-bottom: 20px; }
   .totals-row {
     margin-bottom: 10px; }
     .totals-row:last-child {

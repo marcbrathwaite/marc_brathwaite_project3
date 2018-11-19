@@ -1,8 +1,8 @@
 $background-color1: #0D1B2A;
-$color2: #C8D3D5;
+$background-color2: #C8D3D5;
 $background-color3: #778DA9;
 $font-color1: #FCFAFA;
-
+$background-color4: #0B7A75;
 
 @mixin primaryFont($size) {
     font-family: 'Archivo', sans-serif;
@@ -33,15 +33,14 @@ html {
     margin: 0 auto;
 }
 
-input[type="text"], select {
+input[type="text"],
+select {
     @include secondaryFont(18);
     line-height: 1.4;
-    border: 1px solid $font-color;
+    border: 1px solid $font-color1;
     padding: 10px;
     border-radius: 5px;
 }
-
-
 
 .font-1 {
     color: $font-color1;

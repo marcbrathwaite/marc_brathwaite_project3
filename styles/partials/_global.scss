@@ -49,7 +49,7 @@ select {
 }
 
 .font-1 {
-    @include primaryFont(80);
+    @include primaryFont(30);
     color: $font-color1;
     text-align: center;
 }

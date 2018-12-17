@@ -40,10 +40,6 @@
 
 @media (max-width: 675px) {
 
-    .font-1 {
-        font-size: 5rem;
-    }
-
     .wrapper {
         width: 98%;
     }
@@ -92,5 +88,15 @@
 
     .output-disp-tab-header {
         font-size: 1.3rem;
+    }
+
+    .output-disp-btn-heading {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 330px) {
+    .output-disp-btn-heading {
+        font-size: 1.4rem;
     }
 }

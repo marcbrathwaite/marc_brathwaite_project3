@@ -226,8 +226,8 @@ select {
 .font-1 {
   font-family: 'Archivo', sans-serif;
   font-weight: bold;
-  font-size: 80px;
-  font-size: 8rem;
+  font-size: 30px;
+  font-size: 3rem;
   text-transform: uppercase;
   line-height: 1.6;
   color: #FCFAFA;
@@ -260,8 +260,9 @@ p {
   line-height: 1.6; }
 
 .header {
-  padding: 30px 0;
-  background: #0D1B2A; }
+  padding: 10px 0;
+  background: #0D1B2A;
+  margin-bottom: 5px; }
 
 .uinput-output {
   display: -webkit-box;
@@ -450,7 +451,7 @@ p {
   width: 100%;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  padding: 40px 0; }
+  padding: 5px 0; }
 
 .totals-row {
   display: -webkit-box;
@@ -618,8 +619,6 @@ input.uinput-remove-radius {
       margin-bottom: 0; } }
 
 @media (max-width: 675px) {
-  .font-1 {
-    font-size: 5rem; }
   .wrapper {
     width: 98%; }
   .output-disp-entry {
@@ -647,4 +646,10 @@ input.uinput-remove-radius {
   .output-disp-entry-mini {
     font-size: 0.5rem; }
   .output-disp-tab-header {
-    font-size: 1.3rem; } }
+    font-size: 1.3rem; }
+  .output-disp-btn-heading {
+    font-size: 1.6rem; } }
+
+@media (max-width: 330px) {
+  .output-disp-btn-heading {
+    font-size: 1.4rem; } }
